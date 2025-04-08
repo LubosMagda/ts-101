@@ -1,4 +1,4 @@
-describe('Task 4', () => {
+describe('Discriminated Unions', () => {
   it('test 0', async () => {
     type BaseAnimal = {
       name: string

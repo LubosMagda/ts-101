@@ -1,10 +1,8 @@
-import { expect } from 'chai'
-
-describe('Task 3', () => {
+describe('Utility Types', () => {
   it('Awaited', async () => {
-    type NN = NonNullable<number | string | null | undefined>;
-    type PR = Promise<Promise<Promise<'myType' | 'myOtherType'>>>;
-    type AW = Awaited<PR>;
+    type NN = NonNullable<number | string | null | undefined>
+    type PR = Promise<Promise<Promise<'myType' | 'myOtherType'>>>
+    type AW = Awaited<PR>
 
     const asyncFn = async <T>(producer: () => Promise<T>): Promise<T> => {
       const result = await producer()
@@ -30,7 +28,7 @@ describe('Task 3', () => {
 
   it('Enum vs Type 1', async () => {
     const abc = ['alpha', 'beta', 'gamma'] as const
-    type ABC = typeof abc[number]
+    type ABC = (typeof abc)[number]
 
     const a: Extract<ABC, 'alpha'> = 'alpha'
     const b: Extract<ABC, 'beta'> = 'beta'
